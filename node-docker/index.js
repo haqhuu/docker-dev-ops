@@ -5,8 +5,8 @@ const app = express()
 const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-    console.log(`Server home`)
-    res.send(`<h2>222 There </h2>`)
+
+    res.send(`<h2>ghi </h2>`)
 })
 
 app.listen(port, () => {
