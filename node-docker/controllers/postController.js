@@ -34,6 +34,8 @@ exports.getOnePost = async (req, res, next) => {
     }
 }
 
+//localhost:3000/posts/ 
+// body->raw->json
 exports.createPost = async (req, res, next) => {
     try {
         const post = await Post.create(req.body)
