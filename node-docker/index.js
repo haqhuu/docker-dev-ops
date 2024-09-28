@@ -46,6 +46,7 @@ connectWithRetry()
 
 redisClient.connect()
 
+app.enable("trust proxy")
 app.use(
     session({
         store: new RedisStore({ client: redisClient }),
@@ -64,7 +65,7 @@ app.use(
 app.use(express.json())
 
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
 
     res.send(`<h2 style="color: red;">hasdyq </h2>`)
 })
