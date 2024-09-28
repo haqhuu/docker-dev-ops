@@ -9,7 +9,7 @@ const {
     REDIS_PORT,
     SESSION_SECRET
 } = require("./config/config")
-
+const cors = require("cors")
 const session = require('express-session')
 const redis = require("redis")
 let RedisStore = require("connect-redis")(session)
@@ -47,6 +47,7 @@ connectWithRetry()
 redisClient.connect()
 
 app.enable("trust proxy")
+app.use(cors({}))
 app.use(
     session({
         store: new RedisStore({ client: redisClient }),
@@ -60,7 +61,6 @@ app.use(
         }
     })
 )
-
 
 app.use(express.json())
 
